@@ -12,7 +12,6 @@ Course Level:** Senior Year
 | [Lab 03](./Labs/l3) | Socket Programming | TCP/UDP Client-Server communication |
 | [Lab 04](./Labs/l4) | VLANs & ACL | Network Security, Traffic Segmentation |
 
-(Note: Please edit the "Topic" column above to match what you actually did in Lab 1, 2, and 3)
 
 ## 🛠️ Key Skills Demonstrated
 * Network Design: Designed local area networks (LAN) with proper subnetting and security protocols.
