@@ -1,0 +1,219 @@
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software, 1841 Software (C1841-IPBASE-M), Version 12.3(14)T7, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2006 by Cisco Systems, Inc.
+Compiled Mon 15-May-06 14:54 by pt_team
+Image text-base: 0x6007D180, data-base: 0x61400000
+
+Port Statistics for unclassified packets is not turned on.
+Cisco 1841 (revision 5.0) with 114688K/16384K bytes of memory.
+Processor board ID FTX0947Z18E
+M860 processor: part number 0, mask 49
+2 FastEthernet/IEEE 802.3 interface(s)
+2 Low-speed serial(sync/async) network interface(s)
+191K bytes of NVRAM.
+32768K bytes of ATA CompactFlash (Read/Write)
+Cisco IOS Software, 1841 Software (C1841-IPBASE-M), Version 12.3(14)T7, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2006 by Cisco Systems, Inc.
+Compiled Mon 15-May-06 14:54 by pt_team
+
+
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+Router>en
+Router#erase startup-conf
+Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]y[OK]
+Erase of nvram: complete
+%SYS-7-NV_BLOCK_INIT: Initialized the geometry of nvram
+Router#reload
+Proceed with reload? [confirm]
+
+
+Router>en
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R1
+R1(config)#no ip domain-lookup
+R1(config)#enable secret class
+R1(config)#banner motd &
+Enter TEXT message.  End with the character '&'.
+
+******************************** 
+!!!AUTHORIZED ACCESS ONLY!!! 
+******************************** 
+&
+
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+exit
+
+
+
+
+
+
+R1 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+******************************** 
+!!!AUTHORIZED ACCESS ONLY!!! 
+******************************** 
+
+
+R1>en
+Password: 
+R1#config terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#line console 0
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#exit
+R1(config)#end
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+end
+Translating "end"
+% Unknown command or computer name, or unable to find computer address
+
+R1#exit
+
+
+
+
+
+
+
+
+
+R1 con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************** 
+!!!AUTHORIZED ACCESS ONLY!!! 
+******************************** 
+
+
+User Access Verification
+
+Password: 
+
+R1>conf t
+        ^
+% Invalid input detected at '^' marker.
+	
+R1>config terminal
+          ^
+% Invalid input detected at '^' marker.
+	
+R1>en
+Password: 
+Password: 
+Password: 
+R1#en
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#line vty 0 4 
+R1(config-line)#password cisco
+R1(config-line)#login
+R1(config-line)#exit
+R1(config)#
+R1(config)#service ?
+  dhcp                 Enable DHCP server and relay agent
+  nagle                Enable Nagle's congestion control algorithm
+  password-encryption  Encrypt system passwords
+  timestamps           Timestamp debug/log messages
+R1(config)#service p
+R1(config)#service P
+R1(config)#service password-encryption
+R1(config)#
+R1(config)#
+R1(config)#interface serial 0/0/0
+R1(config-if)#ip address 192.168.2.1 255.255.255.0
+R1(config-if)#no shutdown
+
+%LINK-5-CHANGED: Interface Serial0/0/0, changed state to down
+R1(config-if)#int f0/0
+R1(config-if)#ip address 192.168.1.1 255.255.255.0
+R1(config-if)#no shutdown
+
+R1(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+R1(config-if)#
+R1(config-if)#end
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+R1#copy run start
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+R1#
+R1#
+R1#
+
+
+******************************** 
+ !!!AUTHORIZED ACCESS ONLY!!! 
+******************************** 
+
+
+User Access Verification
+
+Password: 
+
+R1>en
+Password: 
+R1#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+FastEthernet0/0        192.168.1.1     YES manual up                    up 
+FastEthernet0/1        unassigned      YES NVRAM  administratively down down 
+Serial0/0/0            192.168.2.1     YES manual up                    up 
+Serial0/0/1            unassigned      YES NVRAM  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+R1#exit

@@ -1,0 +1,91 @@
+#R1
+
+R1>en
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface g0/0
+R1(config-if)#ip helper-address 192.168.60.253
+R1(config-if)#end
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+R1#write memory
+Building configuration...
+[OK]
+R1#
+
+
+#PC-1:
+
+Cisco Packet Tracer PC Command Line 1.0
+C:\>ipconfig
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: FE80::202:4AFF:FEA5:1470
+   IPv6 Address....................: ::
+   IPv4 Address....................: 192.168.50.11
+   Subnet Mask.....................: 255.255.255.0
+   Default Gateway.................: ::
+                                     192.168.50.1
+
+Bluetooth Connection:
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: ::
+   IPv6 Address....................: ::
+   IPv4 Address....................: 0.0.0.0
+   Subnet Mask.....................: 0.0.0.0
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+#Connection test:
+
+C:\>ping 192.168.50.1
+
+Pinging 192.168.50.1 with 32 bytes of data:
+
+Reply from 192.168.50.1: bytes=32 time<1ms TTL=255
+Reply from 192.168.50.1: bytes=32 time<1ms TTL=255
+Reply from 192.168.50.1: bytes=32 time<1ms TTL=255
+Reply from 192.168.50.1: bytes=32 time<1ms TTL=255
+
+Ping statistics for 192.168.50.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\>ping 192.168.60.253
+
+Pinging 192.168.60.253 with 32 bytes of data:
+
+Reply from 192.168.60.253: bytes=32 time=20ms TTL=127
+Reply from 192.168.60.253: bytes=32 time=2ms TTL=127
+Reply from 192.168.60.253: bytes=32 time<1ms TTL=127
+Reply from 192.168.60.253: bytes=32 time<1ms TTL=127
+
+Ping statistics for 192.168.60.253:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 20ms, Average = 5ms
+
+C:\>
+
+#PC-1 to website server:
+
+C:\>ping 209.165.202.158
+
+Pinging 209.165.202.158 with 32 bytes of data:
+
+Reply from 209.165.202.158: bytes=32 time=25ms TTL=125
+Reply from 209.165.202.158: bytes=32 time=8ms TTL=125
+Reply from 209.165.202.158: bytes=32 time=3ms TTL=125
+Reply from 209.165.202.158: bytes=32 time=14ms TTL=125
+
+Ping statistics for 209.165.202.158:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 3ms, Maximum = 25ms, Average = 12ms
+
+C:\>
